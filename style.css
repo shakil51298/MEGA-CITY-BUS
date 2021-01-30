@@ -122,3 +122,10 @@ nav ul li a:hover, a.active{
     display: flex;
     justify-content: space-between;
 }
+
+/* you are done */
+.done{
+    text-align: center;
+    height: 200px;
+    padding: 30px;
+}

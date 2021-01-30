@@ -16,7 +16,6 @@
 </head>
 
 <body>
-
     <!--Header and Menu Section-->
     <header class="container">
         <nav>
@@ -35,12 +34,14 @@
         <div class="booking-content">
             <h1>Mega City Bus</h1>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+                and
                 scrambled it to make a type specimen book.</p>
         </div>
 
 
-        <div class="booking-form">
+        <div id="hiddenExpolerBus" class="booking-form" >
+
             <h3>Explore By Bus</h3>
 
             <div class="inputs">
@@ -120,9 +121,17 @@
                     </div>
                 </div>
             </div>
-            <button  class="btn-style">Book Now</button>
+            <button id="book-now" class="btn-style">Book Now</button>
         </div>
+        <!-- submittion status -->
+        <div id="shakil" class="booking-form done" style="display: none;">
+            <img src="images/tickmark.png" alt="" width="70px">
+            <h1>Thank You!</h1>
+            <p>Your submission has been receved.</p>
+        </div>
+
     </main>
+
 
     <!--Thank You-->
     <script>
@@ -225,7 +234,7 @@
             if (isAdd == true) {
                 ticketNewCount = ticketInputNumber + 1;
             }
-            if (isAdd == false) {
+            if (isAdd == false && ticketInputNumber > 0) {
                 ticketNewCount = ticketInputNumber - 1;
             }
             document.getElementById(ticket + '-input').value = ticketNewCount;
@@ -258,9 +267,16 @@
             document.getElementById('final-total').innerText = Total;
         }
 
-        function BookNow(){
-            const 
-        }
+        var book = document.getElementById('book-now');
+        book.addEventListener('click', function () {
+            var hideMainPage = document.getElementById('hiddenExpolerBus');
+            hideMainPage.style.display = 'none'
+
+            var showinngMassege = document.getElementById('shakil');
+            showinngMassege.style.display = 'block';
+        })
+
+
     </script>
 </body>
 
