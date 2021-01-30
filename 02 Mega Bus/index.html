@@ -107,7 +107,7 @@
                         <p>Charge 10% VAT</p>
                     </div>
                     <div class="right">
-                        <p>$50</p>
+                        <p>$ <span id="vat-tax">50</span> </p>
                     </div>
                 </div>
                 <hr>
@@ -116,11 +116,11 @@
                         <h4>Total</h4>
                     </div>
                     <div class="right">
-                        <p>$550</p>
+                        <p> $<span id="final-total"> 550 </span></p>
                     </div>
                 </div>
             </div>
-            <button onclick="Calculate()" class="btn-style">Book Now</button>
+            <button  class="btn-style">Book Now</button>
         </div>
     </main>
 
@@ -241,15 +241,21 @@
             Calculate()
         }
 
-        function Calculate(){
-            const currentInputFirst = document.getElementById('first-class-input').value;
-            const Firstparse = parseInt(currentInputFirst);
+        function Calculate() {
+            const CurrentInputFirstClass = document.getElementById('first-class-input').value;
+            const currentInputFirstNumber = parseInt(CurrentInputFirstClass);
 
-            const currentInputEconomy = document.getElementById('economy-input').value;
-            const Economyparse = parseInt(currentInputEconomy);
+            const CurrentInputEconomy = document.getElementById('economy-input').value;
+            const currentInputEconomyNumber = parseInt(CurrentInputEconomy);
 
-            var total = Firstparse * 20 + Economyparse * 50;
-            document.getElementById('current-subtotal').innerText = total;
+            var subtotal = currentInputFirstNumber * 150 + currentInputEconomyNumber * 100;
+            document.getElementById('current-subtotal').innerText = subtotal;
+
+            const tax = subtotal * 0.1;
+            document.getElementById('vat-tax').innerText = tax;
+
+            const Total = subtotal + tax;
+            document.getElementById('final-total').innerText = Total;
         }
     </script>
 </body>
