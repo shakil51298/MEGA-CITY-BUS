@@ -40,7 +40,7 @@
         </div>
 
 
-        <div id="hiddenExpolerBus" class="booking-form" >
+        <div id="hiddenExpolerBus" class="booking-form">
 
             <h3>Explore By Bus</h3>
 
@@ -135,7 +135,7 @@
 
     <!--Thank You-->
     <script>
-        //Economy ticket 
+        //   ---------------------------------------Economy ticket 
         const PlusBtn = document.getElementById('plus-btn');
         PlusBtn.addEventListener('click', function () {
             // const CurrentInputEconomy = document.getElementById('economy-input').value;
@@ -163,7 +163,7 @@
 
         })
 
-        // First Class ticket
+        // -----------------------------------First Class ticket
         const PlusBtns = document.getElementById('plus-btns');
         PlusBtns.addEventListener('click', function () {
             // const CurrentInputFirstClass = document.getElementById('first-class-input').value;
@@ -224,7 +224,7 @@
 
 
 
-        //------------------------- TicketHanlder
+        //-------------------------------------- TicketHanlder
 
         function ticketHandler(ticket, isAdd) {
             const ticketInput = document.getElementById(ticket + '-input').value;
@@ -265,15 +265,33 @@
 
             const Total = subtotal + tax;
             document.getElementById('final-total').innerText = Total;
+
+            // ticket Quantitity = 0 then show a alert status
+
+            if (Total == 0) {
+                alert('please Enter Valide Ticket Quantity. "0" is not a valid ticket quantity ');
+                alert('thanks For Your Understanding!');
+                backAgainToMainPage()
+            }
         }
 
-        var book = document.getElementById('book-now');
-        book.addEventListener('click', function () {
+        // after submit the alert back to previous page;
+        function backAgainToMainPage() {
+            const ShowingPage = document.getElementById('hiddenExpolerBus');
+            ShowingPage.style.display = 'block';
+
+            var Secondpage = document.getElementById('shakil');
+            Secondpage.style.display = 'none';
+        }
+        var BookNow = document.getElementById('book-now');
+        BookNow.addEventListener('click', function () {
             var hideMainPage = document.getElementById('hiddenExpolerBus');
             hideMainPage.style.display = 'none'
 
             var showinngMassege = document.getElementById('shakil');
             showinngMassege.style.display = 'block';
+
+            Calculate()
         })
 
 
